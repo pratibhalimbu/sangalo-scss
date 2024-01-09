@@ -1,0 +1,707 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Nunito+Sans:opsz,wght@6..12,400;6..12,700&display=swap');
+
+@import 'var';
+@import 'mixin';
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: nunito sans;
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+   
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero{
+    background: url(http://sangalotech.com/html/15/assets/images/hero-banner.jpg);
+    height: auto;
+    background-size: 100%;
+    @include mobile{
+        background-repeat: no-repeat;
+        background-size: 140%;
+        background-position: 0 80px;
+    }
+    &-inner{
+        padding: 18px 30px;
+        @include flex;
+        color: $w;
+        @include mobile{
+            color: #000;
+        }
+        span{
+            font-size: 30px;
+            display: none;
+            @include mobile{
+                display: block;
+                flex-grow: 1;
+            }
+        }
+        .logo{
+            font-family: carter one;
+            font-size: 38px;
+            font-weight: 400;
+            color: $w;
+            @include mobile{
+                font-size: 30px;
+                color: #000;
+            }
+        }
+        nav{
+            flex-grow: 1;
+            ul{
+                @include flex(start);
+                @include mobile{
+                   display: block;
+                   position: absolute;
+                   top: 65px;
+                   left: 0;
+                   width: 100%;
+                   margin: 0;
+                   padding: 20px;
+                   text-align: center;
+                   background: #fff;
+                   display: none;
+                   &:hover{
+                    display: block;
+                   }
+                 }
+                gap: 40px;
+                margin-left: 60px;
+                li{
+                    &:nth-child(3){
+                        display: none;
+                        @include mobile{
+                            display: block;
+                            background:hsl(208, 7%, 46%);;
+                            a{
+                                color: #fff;
+                                font-weight: bold;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                    &:nth-child(4){
+                        @include mobile{
+                            display: none;
+                        }
+                    }
+                    @include mobile{
+                        padding: 12px;
+                    }
+                }
+                a{
+                    color: $w;
+                    font-size: 17px;
+                    font-weight: 700;
+                    @include mobile{
+                        color: #000;
+                        font-weight: normal;
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        .ham{
+            display: block;
+        }
+
+        .right-icon{
+            cursor: pointer;
+            font-size: 18px;
+            position: relative;
+            
+            .bi{
+                transition: 0.3s ease;
+                &:hover{
+                    transform: scale(1.1);
+                }
+            }
+            :nth-child(2){
+                font-size: 24px;
+            }
+            :nth-child(3){
+                font-size: 20px;
+            }
+            @include flex;
+           gap: 20px;
+           span{
+            font-size: 12px;
+            position: absolute;
+            padding: 1px 5px;
+            background: #ED6335;
+            border-radius: 50%;
+            top: -6px;
+            right: -11px;
+           }
+        }
+
+    }
+    &-content{
+        color: $w;
+        width: 60%;
+        @include mobile{
+            width: 100%;
+            margin-bottom: -40px;
+        }
+        text-align: center;
+        padding: 50px 0 230px 0;
+        margin-bottom: 40px;
+        h1, h2{
+        font-family: bangers;
+        letter-spacing: 5px;
+        line-height: 1.2;
+        }
+        h2{
+            font-size: 65px;
+            @include mobile{
+                font-size: 40px;
+            }
+        }
+        h1{
+            font-size: 140px;
+            @include mobile{
+                font-size: 90px;
+            }
+        }
+        p{
+            font-size: 24px;
+            @include mobile{
+                font-size: 17px;
+            }
+            padding: 15px;
+            margin-bottom: 30px;
+        }
+        a{
+            color: $w;
+            padding: 8px 25px;
+            background-color: #010000;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.6s ease;
+            &:hover{
+                background: #ED6335;
+            }
+        }
+    }
+}
+.title{
+    text-align: center;
+    padding: 5px 0 30px 0;
+    font-size: 40px;
+    @include mobile{
+        font-size: 30px;
+    }
+    span{
+        color: $brand;
+    }
+}
+.category{
+    padding: 40px;
+    &-inner{
+        @include flex(space-between, wrap);
+        @include mobile{
+            flex-direction: column;
+            margin-bottom: -40px;
+        }
+        
+        .fbox{
+            width: 18%;
+            // gap: 20px;
+            position: relative;
+            @include mobile{
+                width: 100%;
+            }
+            h2{
+                text-align: center;
+                margin-top: 5px;
+                font-size: 20px;
+                @include mobile{
+                    margin-bottom: 25px;
+                }
+            }
+            &-img{
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    transition: 0.5s ease;
+                    }
+                }
+                &:hover img{
+                    transform: scale(1.06); 
+                }
+        }
+    }
+}
+
+.features{
+    padding: 40px;
+    &-inner{
+        @include flex(space-between, wrap);
+        @include mobile{
+            flex-direction: column;
+            flex-wrap: nowrap;
+            margin-bottom: -60px;
+        }
+    }
+    .fbox{
+        width: 32%;
+        position: relative;
+        @include mobile{
+            width: 100%;
+            margin-bottom: 25px;
+        }
+        img{
+            width: 100%;
+        }
+        &-content{
+            width: 65%;
+            position: absolute;
+            left: 10px;
+            top: 25px;
+            padding: 25px 10px;
+            p{
+                font-size: 14px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+            h3{
+                font-size: 32px;
+                font-weight: bold;
+                line-height: 1.2;
+                margin-bottom: 30px;
+            }
+            a{
+                color: $w;
+                padding: 10px 30px;
+                background-color: #ED6335;
+                border-radius: 25px;
+                font-size: 16px;
+                font-weight: bold;
+                transition: 0.6s ease;
+                &:hover{
+                    background: #010000;
+                }
+            }
+        }
+    }
+    
+    
+}
+.best-seller{
+    padding:40px;
+    @include mobile{
+        margin-bottom: -40px;
+    }
+    &-inner{
+        @include flex(space-between, wrap);
+        .fbox{
+            position: relative;
+            width: 250px;
+            height: 400px;
+            gap: 40px;
+            @include mobile{
+                width: 100%;
+                margin-bottom: 25px;
+            }
+            &:hover{
+                .fbox-front{
+                    z-index: 1;
+                }
+                .fbox-back{
+                    z-index: 1;
+                }
+                .cart-back{
+                    display: block;
+                }
+
+            }
+                img{
+                width: 100%;
+                border: 1px solid rgb(237, 236, 236);
+                border-radius: 15px;
+               }
+               &-front{
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+            }
+                &-back{
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+            .cart-back{
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                z-index: 2;
+                border: 1px solid rgb(225, 224, 224);
+                padding: 10px 13px;
+                border-radius: 22px;
+                display: none;
+                transition: 0.3s ease;
+                &:hover{
+                    background: $brand;
+                    color: $w;
+                }
+            }
+            &-features{
+                text-align: center;
+                .first-star{
+                    color: #FFC105 !important;
+                }
+                .star-icon{
+                    color: gray;
+                    margin-top: 272px;
+                    margin-bottom: 6px;
+                    .bi{
+                        margin: 2px;
+                        font-size: 14px;
+                    }
+                    :nth-child(5){
+                        margin-right: 8px;
+                    }
+                    span{
+                        color: gray;
+                    }
+                }
+                p{
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+                h3{
+                    color: $brand;
+                    margin-bottom: 30px;
+                }
+            }
+            
+        }
+    }
+}
+.help-line{
+    text-align: center;
+    padding: 40px;
+    @include mobile{
+        margin-bottom: -40px;
+    }
+    h3{
+        font-size: 40px;
+        @include mobile{
+            font-size: 32px;
+        }
+        margin: 35px 0 40px 0;
+        span{
+            color: $brand;
+        }
+    }
+    &-content{
+        @include flex;
+        gap: 20px;
+        @include mobile{
+            flex-direction: column;
+        }
+        .fbox{
+            @include mobile{
+                margin-bottom: 20px;
+            }
+            h4{
+                width: 280px;
+                font-size: 24px;
+                margin-bottom: 10px;
+                margin: 0 auto;
+            }
+            p{
+                font-size: 16px;
+                color: #999999;
+            }
+        }
+       }
+}
+.cat{
+    padding: 40px;
+    background: url(https://sangalotech.com/html/15/assets/images/cta-bg.jpg);
+    background-repeat: no-repeat;
+    @include mobile{
+        background-size: contain;
+        background-color: #FDBB4B;
+    }
+    @include flex;
+    &-left{
+        width: 58%;
+        @include mobile{
+            display: none;
+        }
+        img{
+            width: 100%;
+            height: 480px;
+        }
+    }
+    &-right{
+        width: 45%;
+        margin-top: 25px;
+        @include mobile{
+            width: 100%;
+            margin-top: 30px;
+        }
+        img{
+            @include mobile{
+                width: 130px;
+            }
+        }
+        h2{
+            font-size: 32px;
+            line-height: 1.2;
+            margin: 10px 0 30px 0;
+        }
+        p{
+            margin-bottom: 40px;
+        }
+        a{
+            padding: 8px 25px;
+            color: $w;
+            background: #000000;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: 0.6s ease;
+            &:hover{
+                background: $w;
+                color: #000;
+            }
+        }
+        
+    }
+}
+.brands{
+    .slider{
+        display: none;
+    }
+    padding: 40px;
+    @include mobile{
+        margin-bottom: -40px;
+    }
+    h2{
+        text-align: center;
+        font-size: 40px;
+        @include mobile{
+            font-size: 30px;
+        }
+        margin: 0 0 40px 0;
+        span{
+            color: $brand;
+        }
+    }
+    &-content{
+        @include flex(space-around);
+        width: 90%;
+        margin: 0 auto;
+        @include mobile{
+            flex-direction: column;
+        }
+        
+        .fbox{
+            border-right: 1px solid rgb(234, 233, 233);
+            @include mobile{
+                border: none;
+            }
+            width: 184px;
+        }
+        :last-child{
+            border-right: none;
+        }
+    }
+}
+footer{
+    color: $w;
+    padding: 65px;
+    background: url(https://sangalotech.com/html/15/assets/images/footer-bg.jpg);
+    background-size: cover;
+    @include mobile{
+        padding: 20px;
+        background-color: #292A2E;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-top: 30px;
+    }
+    .footer-content{
+        margin-top: 60px;
+        @include flex;
+        @include mobile{
+            flex-direction: column;
+            width: 100%;
+            align-items: start;
+        }
+
+    .fbox{
+        @include mobile{
+            padding-bottom: 20px;
+        }
+        h3{
+            font-family: carter one;
+            font-size: 38px;
+            font-weight: normal;
+            margin: 30px 0 14px 0;
+            @include mobile{
+                margin-top: -20px;
+            }
+        }
+        p{
+            font-size: 15px;
+            line-height: 1.6;
+            span{
+                color: $brand;
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+        a{
+            color: #878787;
+        }
+        h4, h5{
+            margin: 10px 0;
+            span{
+                color: $brand;
+                margin-right: 10px;
+                font-size: 19px;
+            }
+        }
+        h5{
+            margin-top: 20px;
+        }
+        h4:hover{
+            cursor: pointer;
+            color: $brand;
+        }
+        ul{
+            line-height: 2;
+            li{
+                a{
+                    &:hover{
+                    color: $brand !important;
+            }
+            }
+            &:first-child{
+                a{
+                    color: $w;
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                }
+            }
+        }
+        .icons{
+            margin: 30px 0 50px 0;
+            @include mobile{
+                margin-bottom: 20px;
+            }
+            .bi{
+                padding: 10px 13px;
+                border-radius: 50%;
+                background: $w;
+                color: #000;
+                margin-right: 10px;
+                transition: 0.3s ease;
+                &:hover{
+                    cursor: pointer;
+                    background: $brand;
+                    color: $w;
+                }
+            }
+           
+
+        }
+    }
+    }
+
+    .footer-bottom{
+        border-top: 1px solid rgb(57, 57, 57);
+        padding: 35px;
+        margin-bottom: -65px;
+        position: relative;
+        @include flex;
+        @include mobile{
+            flex-direction: column;
+            margin-bottom:0;
+            align-items: start;
+        }
+        &-left{
+            p{
+                color: #878787;
+                @include mobile{
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .caret-top{
+            padding: 12px 15px;
+            color: $w;
+            background: $brand;
+            border-radius: 50%;
+            right: 20px;
+            bottom: 30px;
+            @include mobile{
+                bottom: 10px;
+                padding: 6px 9px;
+            }
+        }
+    }
+   
+}
+
+header.active{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: $w;
+    color: #000;
+    animation: sticky 0.9s;
+    z-index: 9999;
+    .logo{
+        color: #000;
+    }
+    .nav-inner{
+        a:hover{
+            color: $brand;
+            transition: 0.5s ease;
+        }
+    }
+    nav ul li a, .right-icon{
+            color: #000;
+    }
+}
+@keyframes sticky{
+    0%{ transform: translateY(-100%);}
+    100%{ transform: translateY(0%);}
+}
+
+.caret-top{
+    position: fixed;
+    background: $brand;
+    color: $w;
+    padding: 12px 15px;
+    border-radius: 50%;
+    animation: caret 0.9s;
+    z-index: 9999;
+    animation: caret 0.5s ease;
+    right: -40px;
+    bottom: 30px;
+}
+
+
